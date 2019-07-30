@@ -20,6 +20,9 @@ case $i in
     -i|--install)
       source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
+    -i|--install-self)
+      source $ENSTARTER_COMMANDS_DIR/install-self.sh
+    ;;
     -e|--env)
       source $ENSTARTER_COMMANDS_DIR/env.sh
     ;;
