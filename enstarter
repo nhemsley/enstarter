@@ -12,7 +12,7 @@ case $i in
       source $ENSTARTER_COMMANDS_DIR/prereqs.sh
 
     ;;
-    -s=*|--searchpath=*)
+    -b|--bash-install)
     SEARCHPATH="${i#*=}"
     ;;
     -l=*|--lib=*)
