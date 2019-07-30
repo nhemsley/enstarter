@@ -9,3 +9,5 @@ ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 GITHUB_URL='nhemsley/enstarter'
 
 git clone https://github.com/$GITHUB_URL.git $ENSTARTER_ORIGIN
+
+$ENSTARTER_BIN --bash-install

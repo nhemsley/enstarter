@@ -13,7 +13,7 @@ case $i in
 
     ;;
     -b|--bash-install)
-    SEARCHPATH="${i#*=}"
+      source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
     -l=*|--lib=*)
     DIR="${i#*=}"
