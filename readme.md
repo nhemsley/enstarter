@@ -5,11 +5,11 @@
 To **install** or **update** enstarter, you can use the install script using cURL:
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nhemsley/enstarter/master/install | bash
 ```
 
 or Wget:
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nhemsley/enstarter/master/install | bash
 ```
