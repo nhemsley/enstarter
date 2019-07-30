@@ -12,11 +12,11 @@ case $i in
       source $ENSTARTER_COMMANDS_DIR/prereqs.sh
 
     ;;
-    -b|--bash-install)
+    -i|--install)
       source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
-    -l=*|--lib=*)
-    DIR="${i#*=}"
+    -e|--env)
+      source $ENSTARTER_COMMANDS_DIR/env.sh
     ;;
     --default)
     DEFAULT=YES
@@ -25,10 +25,4 @@ case $i in
             # unknown option
     ;;
 esac
-done
-
-for install in $(ls -d $ENSTARTER_INSTALLS_DIR/*/); do
-  INSTALL_FILE=$install/install.sh
-  cat $INSTALL_FILE
-
 done
