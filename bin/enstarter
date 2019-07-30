@@ -23,8 +23,8 @@ case $i in
     -i|--install-self)
       source $ENSTARTER_COMMANDS_DIR/install-self.sh
     ;;
-    -e|--env)
-      source $ENSTARTER_COMMANDS_DIR/env.sh
+    -d|--install-deps)
+      source $ENSTARTER_COMMANDS_DIR/install-deps.sh
     ;;
     --default)
     DEFAULT=YES
