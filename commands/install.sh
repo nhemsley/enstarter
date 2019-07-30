@@ -1,4 +1,6 @@
-for install in $(ls -d $ENSTARTER_INSTALLS_DIR/*/); do
+TO_INSTALL=ls -d $ENSTARTER_INSTALLS_DIR/*/ |sort
+
+for install in $TO_INSTALL; do
   INSTALL_FILE=$install/install.sh
   [ -f $INSTALL_FILE ] && source $INSTALL_FILE
 
