@@ -13,3 +13,7 @@ GITHUB_URL='nhemsley/enstarter'
 [ ! -d $ENSTARTER_ORIGIN ] && git clone https://github.com/$GITHUB_URL.git $ENSTARTER_ORIGIN
 
 $ENSTARTER_BIN --install-self
+
+echo ""
+echo "Now Run"
+echo "$ENSTARTER_BIN --install"
