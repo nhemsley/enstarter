@@ -2,12 +2,12 @@
 
 
 ENSTARTER_ORIGIN=~/.enstarter
-ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
+ENSTARTER_BIN=$ENSTARTER_ORIGIN/bin/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 
 GITHUB_URL='nhemsley/enstarter'
 
-git clone https://github.com/$GITHUB_URL.git $ENSTARTER_ORIGIN
+[ ! -d $ENSTARTER_ORIGIN ] && git clone https://github.com/$GITHUB_URL.git $ENSTARTER_ORIGIN
 
 $ENSTARTER_BIN --bash-install
