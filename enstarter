@@ -1,0 +1,34 @@
+#!/bin/bash
+ENSTARTER_ORIGIN=~/code/enstarter
+ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
+ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
+ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
+
+#!/bin/bash
+for i in "$@"
+do
+case $i in
+    -p|--prereqs)
+      source $ENSTARTER_COMMANDS_DIR/prereqs.sh
+
+    ;;
+    -s=*|--searchpath=*)
+    SEARCHPATH="${i#*=}"
+    ;;
+    -l=*|--lib=*)
+    DIR="${i#*=}"
+    ;;
+    --default)
+    DEFAULT=YES
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
+for install in $(ls -d $ENSTARTER_INSTALLS_DIR/*/); do
+  INSTALL_FILE=$install/install.sh
+  cat $INSTALL_FILE
+
+done
