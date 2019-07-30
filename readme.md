@@ -2,6 +2,9 @@
 
 ### Install & Update script
 
+Install git first!
+
+
 To **install** or **update** enstarter, you can use the install script using cURL:
 
 ```sh
