@@ -15,6 +15,10 @@ do
       [ -z "$@" ] && enstarter_apt_installed
 
     ;;
+    to-install)
+      #only show if we have empty arguments
+      cat $ENSTARTER_CONFIG_DIR/apt-installs
+    ;;
     save)
       INSTALLED=$(enstarter_apt_installed)
       echo $INSTALLED > $ENSTARTER_ORIGIN/config/apt-installs
