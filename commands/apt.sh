@@ -11,6 +11,7 @@ do
   shift
   case $i in
     installed)
+      #only show if we have empty arguments
       [ -z "$@" ] && enstarter_apt_installed
 
     ;;
