@@ -27,7 +27,6 @@ do
       git -C $ENSTARTER_ORIGIN commit 'Enstarter system save'
       read -r repo_user repo_name repo_branch <<< $(enstarter_parse_repository_user_name_branch $REPOSITORY)
     ;;
-    *)
     publish)
       read -r repo_user repo_name repo_branch <<< $(enstarter_parse_repository_user_name_branch $REPOSITORY)
       git -C $ENSTARTER_ORIGIN push origin $repo_branch
