@@ -8,6 +8,7 @@ fi
 ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
+ENSTARTER_CONFIG_DIR=$ENSTARTER_ORIGIN/config
 
 ALL_ARGS=$@
 
@@ -31,8 +32,8 @@ case $i in
     apt)
       source $ENSTARTER_COMMANDS_DIR/apt.sh
     ;;
-    git)
-      source $ENSTARTER_COMMANDS_DIR/git.sh
+    system)
+      source $ENSTARTER_COMMANDS_DIR/system.sh
     ;;
     --default)
     DEFAULT=YES
