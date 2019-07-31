@@ -23,8 +23,8 @@ do
       git -C $ENSTARTER_ORIGIN checkout -b $BRANCH
     ;;
     save)
-      git -C $ENSTARTER_ORIGIN add config
-      git -C $ENSTARTER_ORIGIN commit 'Enstarter system save'
+      git -C $ENSTARTER_ORIGIN add config/
+      git -C $ENSTARTER_ORIGIN commit -m 'Enstarter system save'
       read -r repo_user repo_name repo_branch <<< $(enstarter_parse_repository_user_name_branch $REPOSITORY)
     ;;
     publish)
