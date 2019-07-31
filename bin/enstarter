@@ -18,16 +18,16 @@ for i in "$@"
 do
   shift
 case $i in
-    -p|--prereqs|prereqs)
+    prereqs)
       source $ENSTARTER_COMMANDS_DIR/prereqs.sh
     ;;
-    -i|--install|install)
+    install)
       source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
-    -i|--install-self|install-self)
+    install-self)
       source $ENSTARTER_COMMANDS_DIR/install-self.sh
     ;;
-    -d|--install-deps|install-deps)
+    install-deps)
       source $ENSTARTER_COMMANDS_DIR/install-deps.sh
     ;;
     apt)
