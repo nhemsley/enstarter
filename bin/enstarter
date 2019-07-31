@@ -9,6 +9,7 @@ ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 ENSTARTER_CONFIG_DIR=$ENSTARTER_ORIGIN/config
+ENSTARTER_ENV_DIR=$ENSTARTER_ORIGIN/env
 
 ALL_ARGS=$@
 
@@ -34,6 +35,9 @@ case $i in
     ;;
     system)
       source $ENSTARTER_COMMANDS_DIR/system.sh
+    ;;
+    env)
+      source $ENSTARTER_COMMANDS_DIR/env.sh
     ;;
     --default)
     DEFAULT=YES
