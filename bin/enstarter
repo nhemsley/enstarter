@@ -9,22 +9,30 @@ ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 
+ALL_ARGS=$@
+
 #!/bin/bash
 for i in "$@"
 do
+  shift
 case $i in
-    -p|--prereqs)
+    -p|--prereqs|prereqs)
       source $ENSTARTER_COMMANDS_DIR/prereqs.sh
-
     ;;
-    -i|--install)
+    -i|--install|install)
       source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
-    -i|--install-self)
+    -i|--install-self|install-self)
       source $ENSTARTER_COMMANDS_DIR/install-self.sh
     ;;
-    -d|--install-deps)
+    -d|--install-deps|install-deps)
       source $ENSTARTER_COMMANDS_DIR/install-deps.sh
+    ;;
+    apt)
+      source $ENSTARTER_COMMANDS_DIR/apt.sh
+    ;;
+    git)
+      source $ENSTARTER_COMMANDS_DIR/git.sh
     ;;
     --default)
     DEFAULT=YES
