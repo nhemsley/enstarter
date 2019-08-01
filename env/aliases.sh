@@ -13,5 +13,8 @@ alias gcm='git commit -m '
 alias gst='git status'
 alias gadd='git add'
 alias gaa='git add -u .'
+alias gco='git checkout'
+alias gdiff='git diff'
+alias gd='git diff'
 
 alias redobash='source ~/.bashrc'
