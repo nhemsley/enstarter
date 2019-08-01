@@ -9,6 +9,10 @@ ENSTARTER_BIN=$ENSTARTER_ORIGIN/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 ENSTARTER_CONFIG_DIR=$ENSTARTER_ORIGIN/config
+ENSTARTER_ENV_DIR=$ENSTARTER_ORIGIN/env
+
+source $ENSTARTER_ORIGIN/functions.sh
+
 
 ALL_ARGS=$@
 
@@ -17,16 +21,16 @@ for i in "$@"
 do
   shift
 case $i in
-    -p|--prereqs|prereqs)
+    prereqs)
       source $ENSTARTER_COMMANDS_DIR/prereqs.sh
     ;;
-    -i|--install|install)
+    install)
       source $ENSTARTER_COMMANDS_DIR/install.sh
     ;;
-    -i|--install-self|install-self)
+    install-self)
       source $ENSTARTER_COMMANDS_DIR/install-self.sh
     ;;
-    -d|--install-deps|install-deps)
+    install-deps)
       source $ENSTARTER_COMMANDS_DIR/install-deps.sh
     ;;
     apt)
@@ -34,6 +38,9 @@ case $i in
     ;;
     system)
       source $ENSTARTER_COMMANDS_DIR/system.sh
+    ;;
+    env)
+      source $ENSTARTER_COMMANDS_DIR/env.sh
     ;;
     --default)
     DEFAULT=YES
