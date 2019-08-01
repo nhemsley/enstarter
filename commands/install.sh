@@ -1,9 +1,18 @@
 TO_INSTALL=$(ls -d $ENSTARTER_INSTALLS_DIR/*/ | sort)
 
-for install in $TO_INSTALL; do
-  echo "Installing $(basename $install) ..."
-  INSTALL_FILE=$install/install.sh
-  [ -f $INSTALL_FILE ] && INSTALL_OUTPUT=$(source $INSTALL_FILE 2>&1)
-  ENV_FILE=$install/env.sh
+for ENSTARTER_CURRENT_INSTALL in $TO_INSTALL; do
+  echo "Installing $(basename $ENSTARTER_CURRENT_INSTALL) ..."
+
+  INSTALL_FILE=$ENSTARTER_CURRENT_INSTALL/install.sh
+  [ -f $INSTALL_FILE ] && INSTALL_OUTPUT=$(source $INSTALL_FILE)
+
+  #[ ! -z "$ENSTARTER_VERBOSE" ] &&
+  echo $INSTALL_OUTPUT
+
+  ENV_FILE=$ENSTARTER_CURRENT_INSTALL/env.sh
   [ -f $ENV_FILE ] && ENV_OUTPUT=$(source $ENV_FILE)
+
+  #[ ! -z "$ENSTARTER_VERBOSE" ] &&
+  echo $ENV_OUTPUT
+
 done
