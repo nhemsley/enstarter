@@ -8,12 +8,8 @@ ENSTARTER_BIN=$ENSTARTER_ORIGIN/bin/enstarter
 ENSTARTER_INSTALLS_DIR=$ENSTARTER_ORIGIN/installs
 ENSTARTER_COMMANDS_DIR=$ENSTARTER_ORIGIN/commands
 
-
-REPOSITORY_INFO=$(cat $ENSTARTER_CONFIG_DIR/repository)
-
-read -r repo_user repo_name repo_branch <<< $(enstarter_parse_repository_user_name_branch $REPOSITORY_INFO)
-
-GITHUB_URL="$repo_user/$repo_name"
+#TODO: need a build-script to output the repo_user, repo_name, and branch to this file
+GITHUB_URL='nhemsley/enstarter'
 
 [ ! -d $ENSTARTER_ORIGIN ] && git clone https://github.com/$GITHUB_URL.git $ENSTARTER_ORIGIN
 
