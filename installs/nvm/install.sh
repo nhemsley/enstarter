@@ -3,8 +3,9 @@
 source $ENSTARTER_CURRENT_INSTALL/env.sh
 
 for version in $(cat $ENSTARTER_CURRENT_INSTALL/install-node-versions); do
-  # echo "Installing Node $version"
-
   nvm install $version
-
 done
+
+source $ENSTARTER_CURRENT_INSTALL/env.sh
+
+npm install -g yarn
