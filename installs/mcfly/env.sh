@@ -1,3 +1,3 @@
-if [[ -r /path/to/mcfly.bash ]]; then
-  source /path/to/mcfly.bash
+if [[ -r ~/.installs/mcfly/mcfly.bash ]]; then
+  source ~/.installs/mcfly/mcfly.bash
 fi
