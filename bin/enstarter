@@ -42,6 +42,9 @@ case $i in
     env)
       source $ENSTARTER_COMMANDS_DIR/env.sh
     ;;
+    experiment)
+      echo $($ENSTARTER_COMMANDS_DIR/experiment.rb $@)
+    ;;
     --default)
     DEFAULT=YES
     ;;
