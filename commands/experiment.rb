@@ -112,7 +112,7 @@ EXPERIMENT_STATE = ENSTART_STATE.node(:experiment)
 class Experiment < Thor
   @@state = EXPERIMENT_STATE
 
-  desc "create NAME", "create experiment"
+  desc "create NAME", "Create experiment"
   def create(name)
     dir = WD.join(name)
 
@@ -134,6 +134,12 @@ class Experiment < Thor
     headings = ["Name", "Directory"].map{|heading| Paint[heading, :yellow]}
     table = Terminal::Table.new :headings => headings, :rows => experiments
     puts table
+  end
+
+  desc "path NAME", "Output path of experiment"
+  def path(name)
+    matching = @@state[:experiments].select{|experiment| experiment[:name] == name }
+    puts matching.first[:directory]
   end
 
   desc "paths", "get experiment paths"
