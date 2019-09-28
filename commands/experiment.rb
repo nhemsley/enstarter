@@ -3,7 +3,9 @@
 require 'thor'
 require 'fileutils'
 require 'pry'
-require 'colorize'
+require 'terminal-table'
+require 'paint'
+
 
 EXPERIMENT_BIN_FILE = __FILE__
 
@@ -20,7 +22,6 @@ ENSTART_DEFAULT_CONFIG = {
   experiment: {
 
   }
-
 }
 
 ENSTART_DEFAULT_STATE = {
@@ -116,19 +117,27 @@ class Experiment < Thor
     dir = WD.join(name)
 
     if Dir.exist?(dir)
-      puts "Directory #{name} already exists!"
-      return
+      puts "Directory #{name} already exists, using that."
+    else
+      puts "Creating #{name}"
+      Dir.mkdir(dir)
     end
 
-    puts "Creating #{name}"
-    Dir.mkdir(dir)
     experiment = {name: name, directory: dir.to_s}
     @@state[:experiments] << experiment
     @@state.save!
   end
 
+  desc "list", "list experiments"
+  def list
+    experiments =  @@state[:experiments].map{|experiment| experiment.values}
+    headings = ["Name", "Directory"].map{|heading| Paint[heading, :yellow]}
+    table = Terminal::Table.new :headings => headings, :rows => experiments
+    puts table
+  end
+
   desc "paths", "get experiment paths"
-  def paths()
+  def paths
     puts bin_paths.join(':')
   end
 
