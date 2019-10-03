@@ -1,1 +1,1 @@
-[ ! -d ~/.ishell ] && git clone https://bitbucket.org/nhemsley/ishell.git ~/.ishell
+[ ! -d ~/.ishell ] && git clone https://bitbucket.org/nick-itomic/ishell.git ~/.ishell
