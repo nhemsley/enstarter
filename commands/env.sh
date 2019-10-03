@@ -17,4 +17,4 @@ for env_file in $(ls $ENSTARTER_ENV_DIR/*.sh); do
 done
 
 #get experiment paths
-export PATH="$PATH:$(enstarter experiment paths)"
+# export PATH="$PATH:$(enstarter experiment paths)"
