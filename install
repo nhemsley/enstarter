@@ -15,4 +15,3 @@ GITHUB_URL='nhemsley/enstarter'
 
 $ENSTARTER_BIN install-self
 
-$ENSTARTER_BIN install
