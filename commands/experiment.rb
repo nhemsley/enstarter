@@ -1,10 +1,17 @@
 #!/bin/env ruby
 
+require 'yaml'
 require 'thor'
 require 'fileutils'
-require 'pry'
+
 require 'terminal-table'
 require 'paint'
+
+require 'active_support'
+require 'active_support/core_ext/object'
+
+
+require 'pry'
 
 
 EXPERIMENT_BIN_FILE = __FILE__
@@ -113,17 +120,19 @@ class Experiment < Thor
   @@state = EXPERIMENT_STATE
 
   desc "create NAME", "Create experiment"
+  method_option :dir, type: :string
   def create(name)
-    dir = WD.join(name)
+    unexpanded_dir = options[:dir] || WD.join(name)
+    dir = File.expand_path unexpanded_dir
 
     if Dir.exist?(dir)
-      puts "Directory #{name} already exists, using that."
+      puts "Directory #{unexpanded_dir} already exists, using that."
     else
-      puts "Creating #{name}"
+      puts "Creating #{unexpanded_dir}"
       Dir.mkdir(dir)
     end
 
-    experiment = {name: name, directory: dir.to_s}
+    experiment = {name: name, directory: unexpanded_dir.to_s}
     @@state[:experiments] << experiment
     @@state.save!
   end
